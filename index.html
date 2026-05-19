@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kent Neuro Therapy - Speech and Language Therapy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2c5282 0%, #2d3748 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-container img {
+            height: 50px;
+            width: auto;
+        }
+
+        .brand-text h1 {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .brand-text p {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #2c5282 0%, #2d3748 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #f6ad55;
+            color: #1a202c;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #ed8936;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        section h2 {
+            font-size: 32px;
+            color: #2c5282;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 24px;
+            color: #2c5282;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            color: #4a5568;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: #f7fafc;
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 4px solid #f6ad55;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .service-card h3 {
+            color: #2c5282;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .service-card p {
+            color: #4a5568;
+            line-height: 1.8;
+        }
+
+        .credentials {
+            background: #f7fafc;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .credentials h3 {
+            color: #2c5282;
+            margin-bottom: 25px;
+            font-size: 20px;
+        }
+
+        .credentials-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .credentials-list li {
+            padding: 10px 0;
+            color: #4a5568;
+            font-size: 16px;
+        }
+
+        .credentials-list li:before {
+            content: "✓ ";
+            color: #f6ad55;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .logos-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .logos-container img {
+            height: 60px;
+            width: auto;
+        }
+
+        .contact-section {
+            background: #f7fafc;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .contact-item h3 {
+            color: #2c5282;
+            margin-bottom: 10px;
+        }
+
+        .contact-item a {
+            color: #f6ad55;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #2c5282;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .hero h2 {
+                font-size: 28px;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .brand-text h1 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-container">
+                <img src="images/Screenshot_20260519-195111.png" alt="Kent Neuro Therapy Logo">
+                <div class="brand-text">
+                    <h1>Kent Neuro Therapy</h1>
+                    <p>Speech and Language Therapy</p>
+                </div>
+            </div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#credentials">Credentials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Professional Speech and Language Therapy</h2>
+            <p>Specialising in neurological communication disorders with a person-centred approach</p>
+            <a href="#contact" class="cta-button">Get in Touch</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Susannah French</h2>
+        <div class="about-container">
+            <div class="about-text">
+                <h3>Specialist Speech and Language Therapist</h3>
+                <p>I am a specialist Speech and Language Therapist with over 8 years' experience in supporting people to communicate with confidence using a person-centred approach. I specialise in supporting those with communication changes due to strokes, traumatic brain injuries (TBI) and progressive neurological conditions. I also provide communication support to neurodivergent people using a neuro-affirming approach.</p>
+                <p><strong>Location:</strong> Available for speech therapy in Kent and the Kentish border of East Sussex.</p>
+            </div>
+            <div class="about-image">
+                <img src="images/IMG_20260511_125713806~2.jpg" alt="Susannah French">
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2>Services and Fees</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Initial Assessment</h3>
+                <p><strong>Duration:</strong> 60 minutes</p>
+                <p><strong>Includes:</strong> Short report</p>
+                <p style="margin-top: 15px;"><strong>Fee: £90</strong></p>
+            </div>
+            <div class="service-card">
+                <h3>Therapy Session</h3>
+                <p><strong>Duration:</strong> 60 minutes</p>
+                <p><strong>Fee: £90</strong></p>
+            </div>
+            <div class="service-card">
+                <h3>Online Sessions</h3>
+                <p>Available when appropriate for your therapy needs</p>
+                <p><strong>Reduced rate available</strong></p>
+            </div>
+        </div>
+        <div class="service-card" style="margin-top: 30px; background: white; border: 2px solid #f6ad55;">
+            <h3>Additional Services</h3>
+            <p>Extensive reports and meeting attendances available - fees can be agreed in advance based on your specific needs.</p>
+        </div>
+    </section>
+
+    <section id="credentials">
+        <h2>Professional Credentials</h2>
+        <div class="credentials">
+            <h3>Qualifications and Memberships</h3>
+            <ul class="credentials-list">
+                <li>MSc in Speech Sciences</li>
+                <li>MRCSLT (Member of Royal College of Speech and Language Therapists)</li>
+                <li>HCPC Registered</li>
+                <li>ASLTIP Member</li>
+                <li>DBS Registered</li>
+            </ul>
+            <div class="logos-container">
+                <img src="images/ASLTIP-MEMBER-LOGO-1.png" alt="ASLTIP Member Logo">
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Get in Touch</h2>
+        <div class="contact-section">
+            <p style="font-size: 18px; margin-bottom: 20px;">I'd be happy to discuss how I can support your communication needs.</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>Email</h3>
+                    <a href="mailto:sfrenchslt@gmail.com">sfrenchslt@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <h3>Phone</h3>
+                    <a href="tel:07730423705">07730 423705</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Kent Neuro Therapy. All rights reserved. | Susannah French, MSc Speech Sciences</p>
+    </footer>
+</body>
+</html>
