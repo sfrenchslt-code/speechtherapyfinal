@@ -37,6 +37,7 @@
             display: flex;
             align-items: center;
             gap: 15px;
+            flex-shrink: 0;
         }
 
         .logo-container img {
@@ -52,6 +53,37 @@
         .brand-text p {
             font-size: 12px;
             opacity: 0.9;
+        }
+
+        /* Hamburger Menu Button */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 10px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-7px, -7px);
         }
 
         nav ul {
@@ -255,22 +287,97 @@
             padding: 30px 20px;
         }
 
+        /* Mobile Responsive Styles */
         @media (max-width: 768px) {
+            .brand-text h1 {
+                font-size: 18px;
+            }
+
+            .brand-text p {
+                font-size: 10px;
+            }
+
+            /* Show hamburger menu on mobile */
+            .hamburger {
+                display: flex;
+            }
+
+            /* Hide menu by default, show when active */
             nav ul {
-                gap: 15px;
-                font-size: 14px;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, #2c5282 0%, #2d3748 100%);
+                flex-direction: column;
+                gap: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
+            }
+
+            nav ul.active {
+                max-height: 300px;
+            }
+
+            nav ul li {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            nav ul li a {
+                display: block;
+                padding: 15px 20px;
+            }
+
+            nav {
+                position: relative;
+                flex-wrap: wrap;
             }
 
             .hero h2 {
                 font-size: 28px;
             }
 
+            .hero p {
+                font-size: 16px;
+            }
+
             .about-container {
                 grid-template-columns: 1fr;
             }
 
+            section h2 {
+                font-size: 24px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-container {
+                gap: 10px;
+            }
+
+            .logo-container img {
+                height: 40px;
+            }
+
             .brand-text h1 {
-                font-size: 18px;
+                font-size: 16px;
+            }
+
+            .hero h2 {
+                font-size: 24px;
+            }
+
+            section {
+                padding: 40px 15px;
             }
         }
     </style>
@@ -285,7 +392,12 @@
                     <p>Speech and Language Therapy</p>
                 </div>
             </div>
-            <ul>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="navMenu">
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#credentials">Credentials</a></li>
@@ -307,7 +419,7 @@
         <div class="about-container">
             <div class="about-text">
                 <h3>Specialist Speech and Language Therapist</h3>
-                <p>I am a specialist Speech and Language Therapist with over 8 years' experience in supporting people to communicate with confidence using a person-centred approach. I specialise in supporting those with communication changes due to strokes, traumatic brain injuries (TBI) and progressive neurological conditions. I also provide communication support to neurodivergent people using a neuro-affirming approach.</p>
+                <p>I am a specialist Speech and Language Therapist with over 8 years' experience in supporting people to communicate with confidence using a person-centred approach. I specialise [...]
                 <p><strong>Location:</strong> Available for speech therapy in Kent and the Kentish border of East Sussex.</p>
             </div>
             <div class="about-image">
@@ -379,5 +491,25 @@
     <footer>
         <p>&copy; 2026 Kent Neuro Therapy. All rights reserved. | Susannah French, MSc Speech Sciences</p>
     </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
