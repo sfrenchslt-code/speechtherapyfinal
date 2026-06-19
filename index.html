@@ -181,24 +181,28 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
+        /* Updated: force four columns on wide screens so all 4 service cards fit on one row */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(4, minmax(200px, 1fr));
+            gap: 24px;
             margin-top: 40px;
         }
 
         .service-card {
             background: #f7fafc;
-            padding: 30px;
+            padding: 20px; /* reduced padding so cards are slimmer */
             border-radius: 10px;
             border-left: 4px solid #f6ad55;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
         }
 
         .service-card h3 {
             color: #2c5282;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             font-size: 18px;
         }
 
@@ -285,6 +289,13 @@
             color: white;
             text-align: center;
             padding: 30px 20px;
+        }
+
+        /* Responsive breakpoints for services grid */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, minmax(220px, 1fr));
+            }
         }
 
         /* Mobile Responsive Styles */
