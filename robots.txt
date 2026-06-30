@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kentneurotherapy.co.uk/sitemap.xml
