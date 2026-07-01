@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services and Fees | Kent Neuro Therapy</title>
+    <meta name="description" content="Speech and language therapy services and fees in Kent. Assessment, therapy sessions, online options, and block packages available.">
+    <meta name="keywords" content="speech therapy services Kent, therapy fees, speech therapy rates, assessment, therapy sessions">
+    <link rel="canonical" href="https://kentneurotherapy.co.uk/services/">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2c5282 0%, #2d3748 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-shrink: 0;
+        }
+
+        .logo-container img {
+            height: 50px;
+            width: auto;
+        }
+
+        .brand-text h1 {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .brand-text p {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        /* Hamburger Menu Button */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 10px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-7px, -7px);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #2c5282 0%, #2d3748 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #f6ad55;
+            color: #1a202c;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #ed8936;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        main h2 {
+            font-size: 32px;
+            color: #2c5282;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        main p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #4a5568;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Updated: force four columns on wide screens so all 4 service cards fit on one row */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(200px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+            margin-bottom: 30px;
+        }
+
+        .service-card {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #f6ad55;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .service-card h3 {
+            color: #2c5282;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+
+        .service-card p {
+            color: #4a5568;
+            line-height: 1.8;
+        }
+
+        .additional-services {
+            background: white;
+            border: 2px solid #f6ad55;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .additional-services h3 {
+            color: #2c5282;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+
+        .additional-services p {
+            color: #4a5568;
+            line-height: 1.8;
+            text-align: left;
+        }
+
+        footer {
+            background: #2c5282;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        /* Responsive breakpoints for services grid */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, minmax(220px, 1fr));
+            }
+        }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .brand-text h1 {
+                font-size: 18px;
+            }
+
+            .brand-text p {
+                font-size: 10px;
+            }
+
+            /* Show hamburger menu on mobile */
+            .hamburger {
+                display: flex;
+            }
+
+            /* Hide menu by default, show when active */
+            nav ul {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, #2c5282 0%, #2d3748 100%);
+                flex-direction: column;
+                gap: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
+            }
+
+            nav ul.active {
+                max-height: 300px;
+            }
+
+            nav ul li {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            nav ul li a {
+                display: block;
+                padding: 15px 20px;
+            }
+
+            nav {
+                position: relative;
+                flex-wrap: wrap;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            main h2 {
+                font-size: 24px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            main {
+                padding: 40px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-container {
+                gap: 10px;
+            }
+
+            .logo-container img {
+                height: 40px;
+            }
+
+            .brand-text h1 {
+                font-size: 16px;
+            }
+
+            .hero h1 {
+                font-size: 24px;
+            }
+
+            main {
+                padding: 40px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="logo-container">
+                <img src="../images/Screenshot_20260519-195111.png" alt="Kent Neuro Therapy Logo">
+                <div class="brand-text">
+                    <h1>Neuro Therapy in Kent</h1>
+                    <p>Speech and Language Therapy</p>
+                </div>
+            </div>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="navMenu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/#about">About</a></li>
+                <li><a href="/services/">Services</a></li>
+                <li><a href="/aphasia-therapy/">Aphasia Therapy</a></li>
+                <li><a href="/#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Services and Fees</h1>
+            <p>Transparent pricing for specialist speech and language therapy</p>
+            <a href="/#contact" class="cta-button">Get in Touch</a>
+        </div>
+    </section>
+
+    <main>
+
+        <h2>Speech and Language Therapy Services</h2>
+        <p>All sessions are tailored to your individual needs and goals. Whether you require a one-off assessment or ongoing therapy, I'm here to help.</p>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Initial Assessment</h3>
+                <p><strong>Duration:</strong> 60 minutes</p>
+                <p><strong>Includes:</strong> Short report</p>
+                <p style="margin-top: 15px;"><strong>Fee: £90</strong></p>
+            </div>
+            <div class="service-card">
+                <h3>Therapy Session</h3>
+                <p><strong>Duration:</strong> 60 minutes</p>
+                <p><strong>Fee: £90</strong></p>
+            </div>
+            <div class="service-card">
+                <h3>Online Sessions</h3>
+                <p>Available when appropriate for your therapy needs</p>
+                <p><strong>Reduced rate available</strong></p>
+            </div>
+            <div class="service-card">
+                <h3>Block of 6 sessions</h3>
+                <p><strong>Duration:</strong> 60 minutes each</p>
+                <p style="margin-top: 15px;"><strong>Discounted rate: £480</strong></p>
+            </div>
+        </div>
+
+        <div class="additional-services">
+            <h3>Additional Services</h3>
+            <p>Extensive reports and meeting attendances available - fees can be agreed in advance based on your specific needs.</p>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Kent Neuro Therapy. All rights reserved. | Susannah French, MSc Speech Sciences</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
