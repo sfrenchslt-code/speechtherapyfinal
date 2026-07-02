@@ -452,5 +452,31 @@ If you or a family member are experiencing changes to speech following a neurolo
 <p>
 <a href="/#contact">Contact Kent Neuro Therapy</a>
 </p>
+            
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Kent Neuro Therapy. All rights reserved. | Susannah French, MSc Speech Sciences</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
